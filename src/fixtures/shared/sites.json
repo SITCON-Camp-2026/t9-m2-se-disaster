@@ -1,0 +1,28 @@
+[
+  {
+    "id": "S-001",
+    "createdAt": "2026-07-19T23:00:00Z",
+    "updatedAt": "2026-07-20T01:00:00Z",
+    "sourceType": "official_notice",
+    "verificationStatus": "verified",
+    "name": "光復志工集結點",
+    "siteType": "shelter",
+    "addressText": "花蓮光復地區車站周邊",
+    "area": "光復",
+    "status": "verified_open",
+    "lastConfirmedAt": "2026-07-20T01:00:00Z"
+  },
+  {
+    "id": "S-002",
+    "createdAt": "2026-07-19T23:30:00Z",
+    "updatedAt": "2026-07-20T00:00:00Z",
+    "sourceType": "mock",
+    "verificationStatus": "needs_review",
+    "name": "大進臨時物資站",
+    "siteType": "supply",
+    "addressText": "大進國小周邊",
+    "area": "大進",
+    "status": "reported_open",
+    "lastConfirmedAt": "2026-07-20T00:00:00Z"
+  }
+]

@@ -1,0 +1,34 @@
+[
+  {
+    "id": "T-001",
+    "createdAt": "2026-07-20T00:45:00Z",
+    "updatedAt": "2026-07-20T00:45:00Z",
+    "sourceType": "field_report",
+    "verificationStatus": "verified",
+    "reportId": "R-001",
+    "title": "溪畔社區清淤協助",
+    "description": "需要 6 位志工協助清淤。",
+    "needType": "cleanup",
+    "peopleNeeded": 6,
+    "peopleClaimed": 2,
+    "status": "open",
+    "matchMode": "self_claim",
+    "requiredSkills": ["cleanup"]
+  },
+  {
+    "id": "T-002",
+    "createdAt": "2026-07-20T01:15:00Z",
+    "updatedAt": "2026-07-20T01:15:00Z",
+    "sourceType": "mock",
+    "verificationStatus": "needs_review",
+    "relatedSiteId": "S-002",
+    "title": "物資站搬運協助",
+    "description": "需要確認物資站狀態後再派人。",
+    "needType": "delivery",
+    "peopleNeeded": 4,
+    "peopleClaimed": 0,
+    "status": "needs_review",
+    "matchMode": "locked",
+    "requiredSkills": ["delivery"]
+  }
+]

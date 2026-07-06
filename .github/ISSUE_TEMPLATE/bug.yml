@@ -1,0 +1,14 @@
+name: Bug
+body:
+  - type: textarea
+    id: steps
+    attributes:
+      label: 重現步驟
+  - type: textarea
+    id: expected
+    attributes:
+      label: 預期結果
+  - type: textarea
+    id: actual
+    attributes:
+      label: 實際結果

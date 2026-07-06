@@ -1,0 +1,14 @@
+name: Task
+body:
+  - type: textarea
+    id: goal
+    attributes:
+      label: 目的
+  - type: textarea
+    id: ac
+    attributes:
+      label: 對應 acceptance criteria
+  - type: textarea
+    id: done
+    attributes:
+      label: 完成條件

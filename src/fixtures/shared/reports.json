@@ -1,0 +1,29 @@
+[
+  {
+    "id": "R-001",
+    "createdAt": "2026-07-20T00:30:00Z",
+    "updatedAt": "2026-07-20T00:45:00Z",
+    "sourceType": "field_report",
+    "verificationStatus": "verified",
+    "reportType": "human_need",
+    "rawText": "溪畔社區有一戶需要清淤協助，預估需要 6 人。",
+    "locationText": "花蓮光復地區溪畔社區",
+    "reporterRole": "field_volunteer",
+    "subjectRole": "resident",
+    "needsManualReview": false,
+    "relatedTaskId": "T-001"
+  },
+  {
+    "id": "R-002",
+    "createdAt": "2026-07-20T01:00:00Z",
+    "updatedAt": "2026-07-20T01:05:00Z",
+    "sourceType": "social_post",
+    "verificationStatus": "needs_review",
+    "reportType": "site_update",
+    "rawText": "有人回報大進臨時物資站可能已經不收新物資。",
+    "locationText": "大進臨時物資站",
+    "reporterRole": "remote_volunteer",
+    "needsManualReview": true,
+    "relatedSiteId": "S-002"
+  }
+]

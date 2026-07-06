@@ -1,0 +1,13 @@
+[
+  {
+    "id": "SSR-001",
+    "createdAt": "2026-07-20T01:10:00Z",
+    "updatedAt": "2026-07-20T01:10:00Z",
+    "sourceType": "volunteer_update",
+    "verificationStatus": "needs_review",
+    "siteId": "S-002",
+    "suggestedStatus": "needs_review",
+    "message": "現場志工回報不確定是否還收新物資。",
+    "reportedByRole": "field_volunteer"
+  }
+]
