@@ -39,7 +39,7 @@
 ## 前 10 分鐘
 
 1. 開起始畫面；若還沒開，在 repo 裡跑 `pnpm install`、`pnpm dev`，再打開 localhost URL。
-2. 看 `src/app/App.tsx`，確認畫面從哪裡 render。
+2. 看 `src/app/App.tsx`，確認畫面從哪個檔案進入。
 3. 看 `messy-reports.json`，找原文、來源、查核狀態、更新時間等欄位。
 4. 先請 coding agent 分析資料，不要一開始就改 code。
 5. 決定工作台最小版面，讓原始資訊、候選判斷和不能判斷的原因能同時被看見。

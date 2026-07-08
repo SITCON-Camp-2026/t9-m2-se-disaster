@@ -1,26 +1,10 @@
-# 災害資訊積木 Starter
+# 災害資訊積木起始專案
 
-SITCON Camp 2026 軟體工程工作坊 starter repo。
+SITCON Camp 2026 軟體工程工作坊的 Phase 0 public 起始專案。
 
-這是一個前端-only 的學習原型專案，用於練習：
+這是一個前端-only 的學習原型。Phase 0 的核心體驗是：每位學員在自己的個人 repo 中使用 Codex + VS Code extension，快速做出一個能暴露資料品質問題的資訊整理工作台。
 
-- SDD-lite
-- schema / data contract
-- mock data
-- event injection
-- adapter
-- handoff
-- AI-assisted development
-
-第一階段學員起始入口：
-
-1. [`docs/student-context.md`](docs/student-context.md)
-2. [`docs/brief.md`](docs/brief.md)
-3. [`docs/output-paths.md`](docs/output-paths.md)
-4. [`docs/tasks/00-how-to-use-task-cards.md`](docs/tasks/00-how-to-use-task-cards.md)
-5. [`docs/tasks/01-phase-0-messy-sprint.md`](docs/tasks/01-phase-0-messy-sprint.md)
-
-完整課程脈絡請講師、助教、repo 維護者或後續階段再讀：[`docs/course-context.md`](docs/course-context.md)。
+本 public 起始專案只包含 Phase 0。Phase 0 之後的訪談、流程設計、實作支架、變更事件、交接材料與成果交流材料，會由講師在課程中從 private staff repo 釋出。
 
 ## 快速開始
 
@@ -49,49 +33,32 @@ src/main.tsx
 src/app/App.tsx
 ```
 
-請把可展示成果接進 `src/app/App.tsx`，或由 `App.tsx` 匯入的 component。只新增 `docs/`、`tests/`、`events/` 或未被匯入的 component，不算完成前端 demo。
+請把可展示成果接進 `src/app/App.tsx`，或由 `App.tsx` 匯入的 component。只新增 `docs/`、`tests/` 或未被匯入的 component，不算完成前端 demo。
 
 詳細規則請看 [`docs/output-paths.md`](docs/output-paths.md)。
 
-## 今日任務導航
+## 第一階段入口
 
-上課時請依照目前階段閱讀對應任務卡。任務卡會明確寫出來源、要做什麼、不做什麼、成果放置位置、可用 prompt、交付成果與停止條件。
+上課時請先讀這些文件。它們只會引導 Phase 0，不會提前提供後續階段材料。
 
-| 階段                     | 任務卡                                                                             |
-| ------------------------ | ---------------------------------------------------------------------------------- |
-| 任務卡使用方式           | [`docs/tasks/00-how-to-use-task-cards.md`](docs/tasks/00-how-to-use-task-cards.md) |
-| 第一階段 AI 快速原型衝刺 | [`docs/tasks/01-phase-0-messy-sprint.md`](docs/tasks/01-phase-0-messy-sprint.md)   |
-| 第一階段復盤             | [`docs/tasks/02-phase-0-debrief.md`](docs/tasks/02-phase-0-debrief.md)             |
-| SDD-lite Spec            | [`docs/tasks/03-sdd-lite-spec.md`](docs/tasks/03-sdd-lite-spec.md)                 |
-| Spec 市集                | [`docs/tasks/04-spec-market.md`](docs/tasks/04-spec-market.md)                     |
-| Scope Lock               | [`docs/tasks/05-scope-lock.md`](docs/tasks/05-scope-lock.md)                       |
-| Build Sprint 1           | [`docs/tasks/06-build-sprint-1.md`](docs/tasks/06-build-sprint-1.md)               |
-| Event Injection          | [`docs/tasks/07-event-injection.md`](docs/tasks/07-event-injection.md)             |
-| Build Sprint 2           | [`docs/tasks/08-build-sprint-2.md`](docs/tasks/08-build-sprint-2.md)               |
-| Handoff Prep             | [`docs/tasks/09-handoff-prep.md`](docs/tasks/09-handoff-prep.md)                   |
-| Handoff Challenge        | [`docs/tasks/10-handoff-challenge.md`](docs/tasks/10-handoff-challenge.md)         |
-| 成果交流                 | [`docs/tasks/11-showcase.md`](docs/tasks/11-showcase.md)                           |
-
-可複製的 Coding Agent prompts 放在 [`docs/prompts/`](docs/prompts/)。
+1. [`docs/student-context.md`](docs/student-context.md)
+2. [`docs/brief.md`](docs/brief.md)
+3. [`docs/output-paths.md`](docs/output-paths.md)
+4. [`docs/tasks/00-how-to-use-task-cards.md`](docs/tasks/00-how-to-use-task-cards.md)
+5. [`docs/tasks/01-phase-0-messy-sprint.md`](docs/tasks/01-phase-0-messy-sprint.md)
+6. [`docs/tasks/02-phase-0-debrief.md`](docs/tasks/02-phase-0-debrief.md)
 
 ## 課程限制
 
-- 不做後端服務
-- 不使用真實個資
-- 不呼叫真實 LLM runtime API
-- `events/**` 是外部 dirty data
-- `src/fixtures/**` 是 normalized internal data，必須通過 validation
-- starter repo 不放 team-specific brief、hidden event data、mentor guide 或 expected answer
-
-## 資料資料夾語意
-
-```text
-src/fixtures/phase-0/     # 初始混亂資料，Phase 0 使用
-src/fixtures/shared/      # starter 內建 normalized data，必須通過 validation
-src/fixtures/released/    # staff 課中釋出後可放入的 normalized data
-src/fixtures/workspace/   # 小組自行轉換後的 normalized data
-events/                   # 課中 event injection 的外部 dirty input
-```
+- 不做後端服務。
+- 不使用真實個資。
+- 不呼叫真實 LLM runtime API。
+- 不查真實地圖、真實地址、真實電話或真實人物資料。
+- 不做真實救災判斷。
+- Phase 0 使用 `src/fixtures/phase-0/` 的原始資訊 / 未整理資料。
+- 不把未整理資料搬進 shared fixtures 假裝成整理後資料。
+- 若學生文件需要保留英文技術詞，請搭配中文說法，例如資料格式（schema）、轉換器（adapter）、完成條件（acceptance criteria）。
+- public 起始專案不放後續課程材料、hidden event data、mentor guide 或 expected answers。
 
 ## 授權
 

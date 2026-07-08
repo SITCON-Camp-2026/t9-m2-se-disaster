@@ -2,13 +2,14 @@
 
 災害現場出現一批求助與資源資訊，有些來自社群貼文，有些來自現場口述，有些是志工回報。
 
-這不是資料分類考試，而是一次 AI 快速原型衝刺。請做一個前端工作台，讓後續協作者能看懂目前有哪些需求與資源狀態，並觀察這個成果在哪些資料上無法安全成立。
+這不是資料分類考試，而是一次 AI 快速原型衝刺。請做一個前端工作台，讓下一位協作者能看懂目前有哪些需求與資源狀態，並觀察這個成果在哪些資料上無法安全成立。
 
 ## 目前請先讀
 
 - `docs/student-context.md`
 - `docs/tasks/00-how-to-use-task-cards.md`
 - `docs/tasks/01-phase-0-messy-sprint.md`
+- `docs/tasks/02-phase-0-debrief.md`
 - `docs/output-paths.md`
 - `src/fixtures/phase-0/messy-reports.json`
 - 起始畫面
