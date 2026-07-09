@@ -1,11 +1,32 @@
 import { fireEvent, render, screen } from "@testing-library/react";
-import { describe, expect, it } from "vitest";
+import { beforeEach, describe, expect, it } from "vitest";
 import { App } from "../src/app/App";
 
 describe("App", () => {
+  beforeEach(() => {
+    window.history.pushState({}, "", "/");
+  });
+
   it("renders starter title", () => {
     render(<App />);
     expect(screen.getByText("災害資訊整理工作台")).toBeInTheDocument();
+  });
+
+  it("renders the coordinator-focused page at /v1/", () => {
+    window.history.pushState({}, "", "/v1/");
+
+    render(<App />);
+
+    expect(screen.getByText("現場協調者資訊整理工作台")).toBeInTheDocument();
+    expect(
+      screen.getByRole("button", { name: "協調總覽" }),
+    ).toBeInTheDocument();
+    expect(
+      screen.getByText("先找出不能直接安排人力的資訊。"),
+    ).toBeInTheDocument();
+    expect(
+      screen.getByText("資訊取得方式只說明資料怎麼進來，不代表可信度。"),
+    ).toBeInTheDocument();
   });
 
   it("keeps the home page focused on phase 0 tabs", () => {

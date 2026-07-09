@@ -4,6 +4,7 @@ import { EmptyState } from "../components/EmptyState";
 import { Phase0RawInfoPanel } from "../features/phase-0/Phase0RawInfoPanel";
 import { Phase0Workbench } from "../features/phase-0/Phase0Workbench";
 import type { Phase0MessyRecord } from "../features/phase-0/phase0-types";
+import { V1Page } from "../features/v1/V1Page";
 
 type TabKey = "raw" | "workbench";
 
@@ -15,6 +16,7 @@ const tabs: Array<{ key: TabKey; label: string }> = [
 const phase0Records = messyReports satisfies Phase0MessyRecord[];
 
 export function App() {
+  const isV1Route = /\/v1\/?$/.test(window.location.pathname);
   const [activeTab, setActiveTab] = useState<TabKey>("raw");
   const [selectedRecordId, setSelectedRecordId] = useState(
     phase0Records[0]?.id ?? "",
@@ -23,6 +25,10 @@ export function App() {
   function selectForWorkbench(recordId: string) {
     setSelectedRecordId(recordId);
     setActiveTab("workbench");
+  }
+
+  if (isV1Route) {
+    return <V1Page />;
   }
 
   return (
