@@ -17,6 +17,25 @@ export type Phase0SuggestedNextStep =
   | "create_site_update_suggestion"
   | "do_not_use_yet";
 
+export type Phase0ManpowerNeed =
+  | "unknown"
+  | "mud_cleanup"
+  | "utility_repair"
+  | "shovel_tool"
+  | "supply_support"
+  | "furniture_moving"
+  | "medicine_check"
+  | "site_access"
+  | "no_manpower_need";
+
+export type Phase0LocationArea =
+  | "unknown"
+  | "guangfu_candidate"
+  | "xipan_candidate"
+  | "dajin_candidate"
+  | "old_street_candidate"
+  | "area_a_candidate";
+
 export type Phase0MessyRecord = {
   id: string;
   rawText: string;
@@ -33,5 +52,8 @@ export type Phase0JudgementDraft = {
   blockers: string[];
   suggestedNextStep: Phase0SuggestedNextStep;
   unsafeToActDirectly: boolean;
+  manpowerNeed?: Phase0ManpowerNeed;
+  locationArea?: Phase0LocationArea;
   humanReviewNote?: string;
+  humanCorrectionNote?: string;
 };

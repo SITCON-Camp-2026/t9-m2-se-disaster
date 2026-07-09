@@ -45,17 +45,44 @@ describe("App", () => {
     expect(screen.getAllByText("未查核").length).toBeGreaterThan(0);
   });
 
-  it("keeps draft CRUD as learner work instead of starter output", () => {
+  it("supports phase 0 editable safety drafts", () => {
     render(<App />);
 
     fireEvent.click(screen.getByRole("button", { name: "整理工作台" }));
 
-    expect(screen.getByText("尚未建立整理草稿")).toBeInTheDocument();
+    expect(screen.getByText("可編輯整理草稿")).toBeInTheDocument();
+    expect(screen.getAllByText("6 筆").length).toBeGreaterThan(0);
+    expect(screen.getByLabelText("不能直接變成志工任務")).toBeInTheDocument();
+
+    fireEvent.click(screen.getByRole("button", { name: "刪除草稿" }));
+
+    expect(screen.getAllByText("尚未建立整理草稿").length).toBeGreaterThan(0);
     expect(
-      screen.getByText(/請 agent 加上建立、編輯、刪除或重設整理草稿/),
+      screen.getByRole("button", { name: "建立安全邊界草稿" }),
     ).toBeInTheDocument();
-    expect(
-      screen.queryByText(/已產生 \d+ 筆安全邊界草稿/),
-    ).not.toBeInTheDocument();
+  });
+
+  it("filters draft records by candidate need and location", () => {
+    render(<App />);
+
+    fireEvent.click(screen.getByRole("button", { name: "整理工作台" }));
+
+    expect(screen.getByLabelText("人力或物資需求")).toBeInTheDocument();
+    expect(screen.getByLabelText("鄉鎮/地點候選")).toBeInTheDocument();
+    expect(screen.getByLabelText("草稿人力或物資需求候選")).toBeInTheDocument();
+    expect(screen.getByLabelText("草稿鄉鎮/地點候選")).toBeInTheDocument();
+
+    fireEvent.change(screen.getByLabelText("人力或物資需求"), {
+      target: { value: "utility_repair" },
+    });
+
+    expect(screen.getByText("顯示 1 / 12 筆")).toBeInTheDocument();
+    expect(screen.getAllByText("M-003").length).toBeGreaterThan(0);
+
+    fireEvent.change(screen.getByLabelText("鄉鎮/地點候選"), {
+      target: { value: "xipan_candidate" },
+    });
+
+    expect(screen.getByText("沒有符合目前篩選的草稿。")).toBeInTheDocument();
   });
 });

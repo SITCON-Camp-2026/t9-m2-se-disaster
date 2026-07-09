@@ -28,6 +28,33 @@ const nextStepLabels: Record<
   do_not_use_yet: "暫時不要使用",
 };
 
+const manpowerLabels: Record<
+  NonNullable<Phase0JudgementDraft["manpowerNeed"]>,
+  string
+> = {
+  unknown: "需求待判斷",
+  mud_cleanup: "清泥人力候選",
+  utility_repair: "水電候選",
+  shovel_tool: "鏟子/工具候選",
+  supply_support: "物資支援候選",
+  furniture_moving: "搬運家具候選",
+  medicine_check: "藥品確認候選",
+  site_access: "集合/道路狀態候選",
+  no_manpower_need: "暫無人力需求候選",
+};
+
+const locationLabels: Record<
+  NonNullable<Phase0JudgementDraft["locationArea"]>,
+  string
+> = {
+  unknown: "地點待判斷",
+  guangfu_candidate: "光復候選",
+  xipan_candidate: "溪畔候選",
+  dajin_candidate: "大進候選",
+  old_street_candidate: "老街候選",
+  area_a_candidate: "A 區候選",
+};
+
 export function Phase0JudgementCard({
   judgement,
   record,
@@ -35,19 +62,25 @@ export function Phase0JudgementCard({
   judgement: Phase0JudgementDraft;
   record: Phase0MessyRecord;
 }) {
+  const hasEditableDraft =
+    "humanCorrectionNote" in judgement || "humanReviewNote" in judgement;
+
   return (
     <article className="judgement-card">
       <div className="judgement-card__header">
         <div>
-          <p className="eyebrow">Starter 安全預設</p>
-          <h3>尚未建立整理草稿</h3>
+          <p className="eyebrow">
+            {hasEditableDraft ? "草稿摘要" : "Starter 安全預設"}
+          </p>
+          <h3>{hasEditableDraft ? "目前整理草稿" : "尚未建立整理草稿"}</h3>
         </div>
         <StatusBadge status={record.verificationStatus} />
       </div>
 
       <p>
-        這張卡只保留保守的安全邊界，不是 agent 對這筆資料的整理答案。請讓 coding
-        agent 實作可建立、編輯與刪除的整理草稿。
+        {hasEditableDraft
+          ? "這張卡整理目前畫面中的草稿，仍然不是已確認事實。請用它檢查哪些判斷有原文依據，哪些需要人工確認。"
+          : "這張卡只保留保守的安全邊界，不是 agent 對這筆資料的整理答案。"}
       </p>
 
       <dl className="judgement-summary">
@@ -63,6 +96,14 @@ export function Phase0JudgementCard({
           <dt>下一步</dt>
           <dd>{nextStepLabels[judgement.suggestedNextStep]}</dd>
         </div>
+        <div>
+          <dt>需求候選</dt>
+          <dd>{manpowerLabels[judgement.manpowerNeed ?? "unknown"]}</dd>
+        </div>
+        <div>
+          <dt>地點候選</dt>
+          <dd>{locationLabels[judgement.locationArea ?? "unknown"]}</dd>
+        </div>
       </dl>
 
       <p>
@@ -73,7 +114,7 @@ export function Phase0JudgementCard({
       </p>
 
       <section>
-        <h4>目前只有安全預設</h4>
+        <h4>{hasEditableDraft ? "原文依據或草稿線索" : "目前只有安全預設"}</h4>
         <ul>
           {judgement.evidence.map((item) => (
             <li key={item}>{item}</li>
@@ -89,6 +130,20 @@ export function Phase0JudgementCard({
           ))}
         </ul>
       </section>
+
+      {judgement.humanReviewNote ? (
+        <section>
+          <h4>需要人工確認</h4>
+          <p>{judgement.humanReviewNote}</p>
+        </section>
+      ) : null}
+
+      {judgement.humanCorrectionNote ? (
+        <section>
+          <h4>人類質疑或修正</h4>
+          <p>{judgement.humanCorrectionNote}</p>
+        </section>
+      ) : null}
     </article>
   );
 }
